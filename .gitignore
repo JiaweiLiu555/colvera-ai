@@ -1,0 +1,32 @@
+# Patient or restricted data
+data/
+datasets/
+*.dcm
+*.nii
+*.nii.gz
+*.svs
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+
+# Python and notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+
+# Model artifacts
+checkpoints/
+models/
+*.ckpt
+*.pt
+*.pth
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
