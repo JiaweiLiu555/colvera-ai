@@ -1,0 +1,38 @@
+name: Clinical or research question
+description: Define a clinical, dataset, evaluation, or safety question.
+title: "[Question] "
+labels: ["research"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: State one answerable question.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence needed
+      description: Identify the data, specialist input, or experiment needed.
+    validations:
+      required: true
+  - type: textarea
+    id: completion
+    attributes:
+      label: Done when
+      description: Give an observable completion criterion.
+    validations:
+      required: true
+  - type: dropdown
+    id: safety
+    attributes:
+      label: Safety relevance
+      options:
+        - Critical
+        - High
+        - Moderate
+        - Low
+    validations:
+      required: true
+
