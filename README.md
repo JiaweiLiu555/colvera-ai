@@ -6,6 +6,12 @@ Colvera is a research project and product demonstration for longitudinal, multim
 
 > **Non-clinical status.** Colvera is not clinically validated, not a diagnostic device, and must not be used to diagnose, monitor, triage, or treat a patient. The in-app Patient 024 is entirely synthetic.
 
+## Three project goals
+
+1. **Clinical definition:** Define and validate a focused local-regrowth surveillance problem for rectal-cancer watch-and-wait care.
+2. **Data access:** Secure matched, longitudinal, patient-level MRI, endoscopy, clinical, and confirmed-outcome data.
+3. **Evidence:** Build and rigorously evaluate a non-clinical multimodal research prototype with sensitivity, calibration, subgroup analysis, and safe abstention as first-class measures.
+
 ## Product demo
 
 Launch the app and open Patient 024 to see the core workflow:
