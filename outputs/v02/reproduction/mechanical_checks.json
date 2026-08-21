@@ -1,0 +1,9 @@
+{
+  "weights": "data/v02/raw/rectal_MR_DL/good_response/weights/weights_ADC.hdf5",
+  "development_records_used_for_mechanical_check": 10,
+  "same_input_deterministic": true,
+  "finite_probabilities": true,
+  "probability_rows_sum_to_one": true,
+  "random_noise_check": "completed; no performance statistic was calculated or interpreted",
+  "note": "This is an import/inference integrity check only. It is not a model-training or outcome-performance experiment."
+}

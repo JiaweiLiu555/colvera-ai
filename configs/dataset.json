@@ -1,0 +1,16 @@
+{
+  "name": "Zenodo 8379940: MRI radiomics data of LARC patients who responded well and poorly to nCRT",
+  "record_url": "https://zenodo.org/records/8379940",
+  "doi": "10.5281/zenodo.8379940",
+  "license": "CC-BY-4.0",
+  "local_filename": "rectal_mri_radiomics_71.xlsx",
+  "expected_md5": "c7596871db016ad9ffb729cfd2687f93",
+  "expected_patients": 71,
+  "random_seed": 20260815,
+  "test_fraction": 0.2,
+  "target": {
+    "column": "OUTCOME: binary:  0=responders(1,2) 1=nonresponders(3,4)",
+    "positive_class": "nonresponder (TRG3 or TRG4)",
+    "negative_class": "responder (cCR, TRG1, or TRG2)"
+  }
+}

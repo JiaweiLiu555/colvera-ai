@@ -1,0 +1,11 @@
+{
+  "clinical_only": {
+    "description": "Five supplied clinicopathological/MRI variables; exploratory only because the released table identifies them as outcome-associated.",
+    "C_grid": [0.01, 0.1, 1.0, 10.0]
+  },
+  "radiomics_only": {
+    "description": "Pretreatment MRI radiomics with fold-internal variance filtering, univariate selection, scaling, and L1 logistic regression.",
+    "k_grid": [5, 10, 20],
+    "C_grid": [0.01, 0.1, 1.0, 10.0]
+  }
+}

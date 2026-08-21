@@ -1,0 +1,228 @@
+{
+  "model_version": "colvera-mri-clinical-v0.1",
+  "run_date": "2026-08-15",
+  "dataset": "Zenodo 8379940: MRI radiomics data of LARC patients who responded well and poorly to nCRT",
+  "dataset_doi": "10.5281/zenodo.8379940",
+  "task": "Pretreatment binary treatment-response prediction: nonresponder (TRG3/4) versus responder (cCR/TRG1/TRG2).",
+  "holdout": {
+    "train_patients": 56,
+    "test_patients": 15,
+    "seed": 20260815
+  },
+  "research_boundary": "This experiment is not a local-regrowth model, not longitudinal, and not suitable for patient care.",
+  "source_preprocessing_warning": "The released table is already z-score normalized and includes five variables described as outcome-associated. Source-level preprocessing/feature-selection leakage cannot be fully excluded.",
+  "models": [
+    {
+      "model": "clinical",
+      "input_count": 5,
+      "best_parameters": {
+        "model__C": 1.0
+      },
+      "inner_cv_auroc": 0.9219276094276093,
+      "metrics": {
+        "auroc": 0.7142857142857144,
+        "average_precision": 0.7842147435897435,
+        "sensitivity": 0.75,
+        "specificity": 0.5714285714285714,
+        "precision": 0.6666666666666666,
+        "npv": 0.6666666666666666,
+        "f1": 0.7058823529411765,
+        "brier": 0.24920004004965784,
+        "false_negative_rate": 0.25,
+        "tp": 6,
+        "fp": 3,
+        "tn": 4,
+        "fn": 2
+      },
+      "bootstrap_95_ci": {
+        "auroc": [
+          0.4000000000000001,
+          0.9464285714285715
+        ],
+        "average_precision": [
+          0.487325036075036,
+          0.9743589743589745
+        ],
+        "sensitivity": [
+          0.4,
+          1.0
+        ],
+        "specificity": [
+          0.19916666666666671,
+          1.0
+        ],
+        "precision": [
+          0.3333333333333333,
+          1.0
+        ],
+        "npv": [
+          0.25,
+          1.0
+        ],
+        "f1": [
+          0.4,
+          0.9090909090909091
+        ],
+        "brier": [
+          0.11896869548268586,
+          0.39731105021568175
+        ],
+        "valid_bootstrap_resamples": [
+          2000,
+          2000
+        ]
+      }
+    },
+    {
+      "model": "radiomics",
+      "input_count": 2144,
+      "best_parameters": {
+        "model__C": 1.0,
+        "select__k": 10
+      },
+      "inner_cv_auroc": 0.6500841750841752,
+      "metrics": {
+        "auroc": 0.44642857142857145,
+        "average_precision": 0.5283466533466533,
+        "sensitivity": 0.375,
+        "specificity": 0.5714285714285714,
+        "precision": 0.5,
+        "npv": 0.4444444444444444,
+        "f1": 0.42857142857142855,
+        "brier": 0.2966246950123329,
+        "false_negative_rate": 0.625,
+        "tp": 3,
+        "fp": 3,
+        "tn": 4,
+        "fn": 5
+      },
+      "bootstrap_95_ci": {
+        "auroc": [
+          0.125,
+          0.777833333333333
+        ],
+        "average_precision": [
+          0.28786796536796533,
+          0.8865107709750566
+        ],
+        "sensitivity": [
+          0.0,
+          0.7506944444444407
+        ],
+        "specificity": [
+          0.16666666666666666,
+          1.0
+        ],
+        "precision": [
+          0.0,
+          1.0
+        ],
+        "npv": [
+          0.1111111111111111,
+          0.8
+        ],
+        "f1": [
+          0.0,
+          0.7368421052631579
+        ],
+        "brier": [
+          0.19718815803136916,
+          0.4019913747690957
+        ],
+        "valid_bootstrap_resamples": [
+          2000,
+          2000
+        ]
+      }
+    },
+    {
+      "model": "fusion",
+      "input_count": 2149,
+      "best_parameters": {
+        "model__C": 10.0,
+        "select__k": 20
+      },
+      "inner_cv_auroc": 0.7244107744107744,
+      "metrics": {
+        "auroc": 0.6785714285714285,
+        "average_precision": 0.8030219780219781,
+        "sensitivity": 0.5,
+        "specificity": 0.7142857142857143,
+        "precision": 0.6666666666666666,
+        "npv": 0.5555555555555556,
+        "f1": 0.5714285714285714,
+        "brier": 0.2337050326585355,
+        "false_negative_rate": 0.5,
+        "tp": 4,
+        "fp": 2,
+        "tn": 5,
+        "fn": 4
+      },
+      "bootstrap_95_ci": {
+        "auroc": [
+          0.35170940170940174,
+          0.9464285714285714
+        ],
+        "average_precision": [
+          0.49722943722943724,
+          0.9722252747252748
+        ],
+        "sensitivity": [
+          0.14285714285714285,
+          0.875
+        ],
+        "specificity": [
+          0.3333333333333333,
+          1.0
+        ],
+        "precision": [
+          0.25,
+          1.0
+        ],
+        "npv": [
+          0.2222222222222222,
+          0.875
+        ],
+        "f1": [
+          0.18181818181818182,
+          0.8421052631578947
+        ],
+        "brier": [
+          0.11632182518255207,
+          0.35999700597337647
+        ],
+        "valid_bootstrap_resamples": [
+          2000,
+          2000
+        ]
+      }
+    }
+  ],
+  "fusion_selected_features": [
+    "Mucinous tumor differentiation ",
+    "origglcmAutocorr",
+    "origglrlmHighGraylevRunemph",
+    "origglrlmLongRunHighGraylevemph",
+    "origglrlmShortRunHighGraylevemph",
+    "origglszmHighGraylevZoneemph",
+    "origglszmsmlarHighGraylevemph",
+    "origgldmHighGraylevemph",
+    "lsig20mm3Dfomax",
+    "lsig40mm3DfoEnergy",
+    "lsig40mm3DfoTotalEnergy",
+    "lsig40mm3DglszmGraylevNonunif",
+    "wletLLLglcmJointaver",
+    "wletLLLglrlmHighGraylevRunemph",
+    "wletLLLglrlmLongRunHighGraylevemph",
+    "wletLLLglrlmShortRunHighGraylevemph",
+    "wletLLLglszmHighGraylevZoneemph",
+    "wletLLLglszmsmlarHighGraylevemph",
+    "wletLLLgldmHighGraylevemph",
+    "wletLLLgldmsmldepHighGraylevemph"
+  ],
+  "retrieval": {
+    "representation": "Final fusion model's fold-selected features after refitting on the development set.",
+    "neighbors_per_held_out_case": 3,
+    "restriction": "Neighbors are drawn only from the development set; no holdout case retrieves itself or another holdout case."
+  }
+}

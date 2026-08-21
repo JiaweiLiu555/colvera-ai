@@ -1,0 +1,28 @@
+{
+  "version": "colvera-longitudinal-contract-v1",
+  "row_unit": "one de-identified evidence item at one patient visit",
+  "required_columns": [
+    "patient_id",
+    "visit_id",
+    "time_offset_days",
+    "evidence_type",
+    "modality_or_measure",
+    "resource_ref",
+    "split"
+  ],
+  "allowed_evidence_types": ["mri", "endoscopy", "clinical", "laboratory", "dre", "outcome"],
+  "allowed_splits": ["train", "validation", "test", "external_test"],
+  "future_experiments": {
+    "current_only": "current MRI to outcome",
+    "longitudinal": "previous plus current MRI to outcome",
+    "multimodal_longitudinal": "previous/current MRI plus time-aligned clinical evidence to outcome",
+    "full_colvera": "serial MRI plus endoscopy plus clinical trajectory plus comparable historical trajectories to local-regrowth outcome"
+  },
+  "safety_rules": [
+    "Patient IDs must be de-identified study keys; no direct identifiers or PHI.",
+    "Each patient belongs to exactly one split.",
+    "Resource references must be relative to an approved data root; do not commit clinical images.",
+    "Outcome/event values and dates are prohibited from model feature selection.",
+    "All preprocessing, selection, calibration, abstention and retrieval choices are locked using development patients only before final test evaluation."
+  ]
+}

@@ -17,6 +17,9 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 .venv/
+.pytest_cache/
+.coverage
+*.egg-info/
 
 # Model artifacts
 checkpoints/
@@ -24,9 +27,9 @@ models/
 *.ckpt
 *.pt
 *.pth
+outputs/model_artifacts/
 
 # OS/editor
 .DS_Store
 .idea/
 .vscode/
-

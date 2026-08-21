@@ -1,0 +1,400 @@
+{
+  "audit_created_utc": "2026-08-17T03:45:35.915785+00:00",
+  "source_repository": "https://github.com/radiologypkucancer/rectal_MR_DL",
+  "source_repository_commit": "507c357359aff085f5d9853d2f3c51d0c61d8dde",
+  "raw_source_policy": "Read-only source files retained under data/v02/raw; outputs are written outside raw/.",
+  "paper": {
+    "citation": "Zhu HT et al., Frontiers in Oncology (2020), DOI 10.3389/fonc.2020.574337",
+    "primary_outcome": "Good response: ypT0-1 AND ypN0; pathology after nCRT/TME.",
+    "reported_training": {
+      "patients": 500,
+      "good_responders": 116,
+      "non_good_responders": 384
+    },
+    "reported_test": {
+      "patients": 200,
+      "good_responders": 60,
+      "non_good_responders": 140
+    }
+  },
+  "release_arrays": {
+    "training": {
+      "records": 200,
+      "class_index_0": 97,
+      "class_index_1": 103,
+      "shape": [
+        200,
+        4,
+        16,
+        128,
+        128
+      ],
+      "finite_values": true,
+      "exact_duplicate_records_within_or_across_release_arrays": 0
+    },
+    "validation": {
+      "records": 123,
+      "class_index_0": 52,
+      "class_index_1": 71,
+      "shape": [
+        123,
+        4,
+        16,
+        128,
+        128
+      ],
+      "finite_values": true,
+      "exact_duplicate_records_within_or_across_release_arrays": 0
+    },
+    "test": {
+      "records": 200,
+      "class_index_0": 60,
+      "class_index_1": 140,
+      "shape": [
+        200,
+        4,
+        16,
+        128,
+        128
+      ],
+      "finite_values": true,
+      "exact_duplicate_records_within_or_across_release_arrays": 0
+    }
+  },
+  "release_development_total_records": 323,
+  "release_development_limit": "323 array records are released (200 training + 123 validation), not a verified 500-patient development cohort. No patient IDs or augmentation lineage are supplied.",
+  "patient_level_split_feasibility": "Not feasible: no patient IDs, dates, or augmentation lineage are released. The release must not be used for a claimed patient-level CV experiment.",
+  "label_mapping_limit": "Test class-0 prevalence is 60/200 and therefore consistent with the paper's GR prevalence, but per-record outcome semantics are not embedded in the NPZ metadata.",
+  "per_record_modality_mapping_limit": "The four image channels have no names or modality metadata in the NPZ. ADC/T2 channel assignment is not independently verifiable from the release.",
+  "exact_duplicate_groups": [],
+  "known_biases": [
+    "Single-center retrospective study from Beijing Cancer Hospital; no external cohort in this release.",
+    "Participants with insufficient image quality/noise were excluded in the paper, so real-world failure distribution is not represented.",
+    "Release arrays are cropped/preprocessed and omit patient IDs, original DICOM, ROI provenance, scanner details, demographics, and date linkage.",
+    "Development arrays have class proportions unlike the paper's 116/384 patient counts, consistent with transformed or otherwise undocumented records."
+  ],
+  "licensing_and_access": "Public GitHub repository; no explicit LICENSE file found in the cloned release. Contact repository/paper authors before any reuse beyond research inspection.",
+  "file_inventory": [
+    {
+      "path": "good_response/data/test_images_00001.npz",
+      "bytes": 24472207,
+      "sha256": "d5621980f5306c5336969a8aa8af05b9ddd7fa10272ee97da22d918e858761c4"
+    },
+    {
+      "path": "good_response/data/test_targets_00001.npz",
+      "bytes": 296,
+      "sha256": "3de02861d7f10a4880cb19b9a03e7cf5c8cd3e761f3a6eb3697b7d6835c67c0c"
+    },
+    {
+      "path": "good_response/data/training_images_00001.npz",
+      "bytes": 20083663,
+      "sha256": "18ebe91c651ad3e66556e6177f436e907a5735b632698061c8c479819e65d64f"
+    },
+    {
+      "path": "good_response/data/training_targets_00001.npz",
+      "bytes": 296,
+      "sha256": "c11273ca6338522f4fd8f162f6eab1b5a53ea62f6f9f939cd951d7ace6dfecef"
+    },
+    {
+      "path": "good_response/data/validation_images_00064.npz",
+      "bytes": 11764606,
+      "sha256": "5a3db2ff46aeb92529b2336dfdf41c5f0f5832a1ea2757cf96aca45a060ebcc8"
+    },
+    {
+      "path": "good_response/data/validation_targets_00064.npz",
+      "bytes": 260,
+      "sha256": "8f6eb3df818f1e066b4f27662ad8fe982638ccbc5bacdfdcededc92e42c127a3"
+    },
+    {
+      "path": "good_response/networks/networks.png",
+      "bytes": 306647,
+      "sha256": "7cb7a4f30ebadf7fb342d5b3622e72ad020ad4c6ce90b3e48ab2b3eecc1b87bf"
+    },
+    {
+      "path": "good_response/weights/weights_ADC.hdf5",
+      "bytes": 851912,
+      "sha256": "88a5e81ca409171636583b0a006299929ffb99b3eb21cfd682e837cc1a139ab7"
+    },
+    {
+      "path": "good_response/weights/weights_T2.hdf5",
+      "bytes": 851984,
+      "sha256": "e931b59467c384f6ab93b22cd6694e9d7fe5b3fc6b8f72f65e3777dcaaf64098"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_00_generate_lesion_patch.py",
+      "bytes": 4382,
+      "sha256": "0cbd9167870f979dfdf5d264f1699c78480aeb473759aaae00efef054a43fa39"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_01_prepare_data.py",
+      "bytes": 1581,
+      "sha256": "3634aeac180d4d6578742f4618c3362652114d6a06a7ad93d2e3c8669f051b67"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_02_cross_grouping_data.py",
+      "bytes": 6390,
+      "sha256": "826c3160677212678b373014c33656a51716ebd656c51d8a21d107746b277f44"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_03_generate_project_config_files.py",
+      "bytes": 10575,
+      "sha256": "2a0f6b5debcf5c0b474d5b8fc6b60325879aa4903c021c6d220b6a81f6a8753f"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_04_convert_niix_to_npz_data.py",
+      "bytes": 2641,
+      "sha256": "58f1c54bfd3c0a389d1547a5254a2207b2ba8c8d44e2a4ca7b7f4ccd22181322"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_05_train_model.py",
+      "bytes": 3899,
+      "sha256": "c680090ed1c830679da659fcb8639fb55396e2541981401ce9bbd0ed8a0724b4"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_06_prediction.py",
+      "bytes": 5314,
+      "sha256": "3f4344e1171fcb1eb33cbeff7fdc29df9e095840f1dd09170afc52e80be8783c"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/step_07_evaluate_model.py",
+      "bytes": 11304,
+      "sha256": "236f83f9c1bbbbac6099314e1ab411f5458801c6d8a0fee8f2a320e13d8f5594"
+    },
+    {
+      "path": "pathological_complete_response/Rectal_MR_project/test.py",
+      "bytes": 804,
+      "sha256": "430a2ed0e0920e95d310f78c1e86a5d10f0333cf4b18faff7d95515b97ad7db8"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/__pycache__/convert_niix_to_npz.cpython-36.pyc",
+      "bytes": 12749,
+      "sha256": "324c3dea66e530b22d9f033c01a669cd0b8af2d8321d68403740e96ba08c7038"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/__pycache__/data_augmentation.cpython-36.pyc",
+      "bytes": 2241,
+      "sha256": "3bc29a923670f21d27b364560252f4b18cf2bcf7a19c19059bdf0dc0751a8808"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/__init__.py",
+      "bytes": 147,
+      "sha256": "3f1fb29de073c4785dec4b0dddde6c2c9a1e546c2e92507353d031df5df4c017"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/__pycache__/__init__.cpython-36.pyc",
+      "bytes": 321,
+      "sha256": "f1fe3ef2a54ec04bfa9f24b96eb84cad7eef0a76bbbfebf17d4a8673821d89c2"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/__pycache__/augmentation.cpython-36.pyc",
+      "bytes": 5526,
+      "sha256": "cb1b2553b8f628bfc6e6d1d8551d393fa4fdc6f8aa68d96b59cf588351131f58"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/__pycache__/cropping.cpython-36.pyc",
+      "bytes": 7699,
+      "sha256": "2a47f2aa132f7b7993fb82e2e129be3acdb40378081dd81ed0f0ebb79b3fe145"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/__pycache__/labels.cpython-36.pyc",
+      "bytes": 12405,
+      "sha256": "9b0ee7b5662f94b502f45b08f978fc909d94427ff8b24f4b5afb0fec3f563505"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/__pycache__/resampling.cpython-36.pyc",
+      "bytes": 9977,
+      "sha256": "11c97eba483f6acfa3c9ee854a2515c7bd366effebbed97a9d16c094644d578c"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/augmentation.py",
+      "bytes": 9730,
+      "sha256": "10296eeaa7a8de62bba45edf035bf315c576ac46e5a1327ca57e9133107a081d"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/cropping.py",
+      "bytes": 16697,
+      "sha256": "b4af7da0253f9b62386904e1db8a182028f5107392a2e8dfecc362f72c97e6c6"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/labels.py",
+      "bytes": 23864,
+      "sha256": "d6458381007e9bfbea40320732229258f3b788751670216808e99590be8c87d4"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/common_img_processing/resampling.py",
+      "bytes": 20175,
+      "sha256": "517b00bac72f661d6c685ad6342d9428b165f33af318cfd0c8e1652720b22c36"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/convert_niix_to_npz.py",
+      "bytes": 20660,
+      "sha256": "5ad3af357151b25a319d1c6575e053065ffaaf57bb0ba965eb7227d2e1e338c3"
+    },
+    {
+      "path": "pathological_complete_response/data_preparation/data_augmentation.py",
+      "bytes": 3917,
+      "sha256": "91a136695438810cd2e6f92dedb8a0cade376f2211e17bf824e70dbd9b7cb216"
+    },
+    {
+      "path": "pathological_complete_response/networks/DCPCNN.py",
+      "bytes": 7498,
+      "sha256": "3c01b3da08c22280e6aeabc1f1831bd251e4371b276fd94879de4a0d158f45fb"
+    },
+    {
+      "path": "pathological_complete_response/networks/__pycache__/DCPCNN.cpython-36.pyc",
+      "bytes": 4273,
+      "sha256": "38d78e0aabfe5a2c2511d1d608f3c93f66328c97939647bd1f6e7ecb944c2e86"
+    },
+    {
+      "path": "pathological_complete_response/utils/__init__.py",
+      "bytes": 89,
+      "sha256": "67123b1deda596c155dab5f58f006d4f51e155dd7c000f9ee9ecde1838b7114f"
+    },
+    {
+      "path": "pathological_complete_response/utils/__pycache__/__init__.cpython-36.pyc",
+      "bytes": 189,
+      "sha256": "919b3bc90a68d6ecbf96f0620d31216feabc73dd2289ea3d24e0363e999b0fcf"
+    },
+    {
+      "path": "pathological_complete_response/utils/__pycache__/logger.cpython-36.pyc",
+      "bytes": 1181,
+      "sha256": "5c9cc3bde389597de42fc08798cbcd8701c8c5f145b58fb1e1a7c50dbdd7dfe4"
+    },
+    {
+      "path": "pathological_complete_response/utils/logger.py",
+      "bytes": 1492,
+      "sha256": "347c2e61bdfb0a68fcf785ce922701836a9029a5497639cf2fecd42630cd8e42"
+    },
+    {
+      "path": "pathological_complete_response/weights/PCR/weights.hdf5",
+      "bytes": 6565016,
+      "sha256": "2d1594b0235ec43785ef2eb3216168fb50c1d4ca891f8697599ffe1cf0ef9bfe"
+    },
+    {
+      "path": "pathological_complete_response/weights/TRG/weights.hdf5",
+      "bytes": 6565016,
+      "sha256": "ce9eabd97b6da6141eed91e8eb7ff6f660ea976facc3ba1949bfb7c40696f78b"
+    },
+    {
+      "path": "pathological_complete_response/weights/T_degrade/weights.hdf5",
+      "bytes": 6565016,
+      "sha256": "0fe1f7657119319ffde57d8c394bf23df6c537f1aa2408a4108efcba29355ccf"
+    }
+  ],
+  "channel_statistics": {
+    "training": [
+      {
+        "channel_index": 0,
+        "min": -2222.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 3043.0,
+        "zero_fraction": 0.9928817558288574
+      },
+      {
+        "channel_index": 1,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 12642.0,
+        "zero_fraction": 0.9928819084167481
+      },
+      {
+        "channel_index": 2,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 3768.0,
+        "zero_fraction": 0.9928817367553711
+      },
+      {
+        "channel_index": 3,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 939.0,
+        "max": 6639.0,
+        "zero_fraction": 0.8348531532287597
+      }
+    ],
+    "validation": [
+      {
+        "channel_index": 0,
+        "min": -999.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 3035.0,
+        "zero_fraction": 0.9926755951672066
+      },
+      {
+        "channel_index": 1,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 7714.0,
+        "zero_fraction": 0.9926756882086033
+      },
+      {
+        "channel_index": 2,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 2716.0,
+        "zero_fraction": 0.9926755641534076
+      },
+      {
+        "channel_index": 3,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 712.0,
+        "max": 6350.0,
+        "zero_fraction": 0.8446055156428639
+      }
+    ],
+    "test": [
+      {
+        "channel_index": 0,
+        "min": -2285.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 3389.0,
+        "zero_fraction": 0.9908123588562012
+      },
+      {
+        "channel_index": 1,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 21745.0,
+        "zero_fraction": 0.9908127021789551
+      },
+      {
+        "channel_index": 2,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 0.0,
+        "max": 4351.0,
+        "zero_fraction": 0.9908123588562012
+      },
+      {
+        "channel_index": 3,
+        "min": 0.0,
+        "p01": 0.0,
+        "median": 0.0,
+        "p99": 2221.0,
+        "max": 9700.0,
+        "zero_fraction": 0.8032733345031738
+      }
+    ]
+  }
+}

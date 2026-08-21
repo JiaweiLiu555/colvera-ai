@@ -1,0 +1,7 @@
+{
+  "name": "colvera-mri-clinical-v0.1",
+  "description": "Early fusion of supplied structured clinicopathological/MRI variables and pretreatment MRI radiomics, with historical-case retrieval in the same feature representation.",
+  "k_grid": [5, 10, 20],
+  "C_grid": [0.01, 0.1, 1.0, 10.0],
+  "neighbors": 3
+}
